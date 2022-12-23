@@ -26,7 +26,8 @@ const SingleTodo = ({ index, todo, red, setRed }) => {
     <Draggable draggableId={todo.id.toString()} index={index}>
       {(provided) => (
         <form
-          onDoubleClick={() => setEdit(!edit)}
+          onClick={() => setEdit(true)}
+          onDoubleClick={() => setEdit(false)}
           onSubmit={(e) => handleEdit(e, todo.id)}
           ref={provided.innerRef}
           {...provided.dragHandleProps}
