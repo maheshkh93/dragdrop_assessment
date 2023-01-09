@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 const SingleCard = ({ index, card, list, setList }) => {
-  const [editCard, setEditCard] = useState(card.item);
+  const [editCard, setEditCard] = useState(card.card);
 
   const [edit, setEdit] = useState(false);
   const inputRef = useRef(null);
@@ -19,7 +19,7 @@ const SingleCard = ({ index, card, list, setList }) => {
     e.preventDefault();
 
     setList(
-      list.map((card) => (card.id === id ? { ...card, item: editCard } : card))
+      list.map((card) => (card.id === id ? { ...card, card: editCard } : card))
     );
     setEdit(false);
   };
@@ -30,6 +30,7 @@ const SingleCard = ({ index, card, list, setList }) => {
         <form
           onClick={() => setEdit(true)}
           onDoubleClick={(e) => handleEdit(e, card.id)}
+          onSubmit={(e) => handleEdit(e, card.id)}
           ref={provided.innerRef}
           {...provided.dragHandleProps}
           {...provided.draggableProps}

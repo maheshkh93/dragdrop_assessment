@@ -12,7 +12,7 @@ export default function StackOfCards() {
 
   const addRed = () => {
     if (red.length < 8) {
-      setRed([...red, { id: Date.now(), card, colour: "red" }]);
+      setRed([...red, { id: Date.now(), card: `red`, colour: "red" }]);
       setCard("");
     } else {
       alert("Exceeding Maximum Limit");
@@ -20,7 +20,7 @@ export default function StackOfCards() {
   };
   const addBlue = () => {
     if (blue.length < 8) {
-      setblue([...blue, { id: Date.now(), card, colour: "blue" }]);
+      setblue([...blue, { id: Date.now(), card: `blue`, colour: "blue" }]);
       setCard("");
     } else {
       alert("Exceeding Maximum Limit");
@@ -28,7 +28,7 @@ export default function StackOfCards() {
   };
   const addGreen = () => {
     if (green.length < 8) {
-      setGreen([...green, { id: Date.now(), card, colour: "green" }]);
+      setGreen([...green, { id: Date.now(), card: `green$`, colour: "green" }]);
       setCard("");
     } else {
       alert("Exceeding Maximum Limit");
@@ -36,7 +36,7 @@ export default function StackOfCards() {
   };
   const addBlack = () => {
     if (black.length < 8) {
-      setBlack([...black, { id: Date.now(), card, colour: "black" }]);
+      setBlack([...black, { id: Date.now(), card: `black`, colour: "black" }]);
       setCard("");
     } else {
       alert("Exceeding Maximum Limit");
