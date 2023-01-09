@@ -1,8 +1,8 @@
 import React from "react";
-import SingleTodo from "./SingleTodo";
+import SingleCard from "./SingleCard";
 import { Droppable } from "react-beautiful-dnd";
 
-const Task = ({ type, list, setlist, addTask }) => {
+const Card = ({ type, list, setList, addTask }) => {
   return (
     <div className="container">
       <Droppable droppableId={type}>
@@ -16,14 +16,13 @@ const Task = ({ type, list, setlist, addTask }) => {
             <button onClick={addTask} className="input_submit">
               Add
             </button>
-            {list?.map((todo, index) => (
-              <SingleTodo
-                colour={type}
+            {list?.map((card, index) => (
+              <SingleCard
                 index={index}
-                red={list}
-                todo={todo}
-                key={todo.id}
-                setRed={setlist}
+                list={list}
+                card={card}
+                key={card.id}
+                setList={setList}
               />
             ))}
 
@@ -35,4 +34,4 @@ const Task = ({ type, list, setlist, addTask }) => {
   );
 };
 
-export default Task;
+export default Card;

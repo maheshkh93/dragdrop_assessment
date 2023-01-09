@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import "./styles.css";
-import Task from "./Task";
+import Card from "./CardList";
 
-export default function TaskList() {
-  const [todo, setTodo] = useState("");
+export default function StackOfCards() {
+  const [card, setCard] = useState("");
   const [red, setRed] = useState([]);
   const [blue, setblue] = useState([]);
   const [green, setGreen] = useState([]);
@@ -12,26 +12,34 @@ export default function TaskList() {
 
   const addRed = () => {
     if (red.length < 8) {
-      setRed([...red, { id: Date.now(), todo, colour: "red" }]);
-      setTodo("");
+      setRed([...red, { id: Date.now(), card, colour: "red" }]);
+      setCard("");
+    } else {
+      alert("Exceeding Maximum Limit");
     }
   };
   const addBlue = () => {
     if (blue.length < 8) {
-      setblue([...blue, { id: Date.now(), todo, colour: "blue" }]);
-      setTodo("");
+      setblue([...blue, { id: Date.now(), card, colour: "blue" }]);
+      setCard("");
+    } else {
+      alert("Exceeding Maximum Limit");
     }
   };
   const addGreen = () => {
     if (green.length < 8) {
-      setGreen([...green, { id: Date.now(), todo, colour: "green" }]);
-      setTodo("");
+      setGreen([...green, { id: Date.now(), card, colour: "green" }]);
+      setCard("");
+    } else {
+      alert("Exceeding Maximum Limit");
     }
   };
   const addBlack = () => {
     if (black.length < 8) {
-      setBlack([...black, { id: Date.now(), todo, colour: "black" }]);
-      setTodo("");
+      setBlack([...black, { id: Date.now(), card, colour: "black" }]);
+      setCard("");
+    } else {
+      alert("Exceeding Maximum Limit");
     }
   };
 
@@ -52,12 +60,16 @@ export default function TaskList() {
     }
 
     if (destination.droppableId === "red" && red.length == 8) {
+      alert("Exceeding Maximum Limit");
       return;
     } else if (destination.droppableId === "blue" && blue.length == 8) {
+      alert("Exceeding Maximum Limit");
       return;
     } else if (destination.droppableId === "green" && green.length == 8) {
+      alert("Exceeding Maximum Limit");
       return;
     } else if (destination.droppableId === "black" && black.length == 8) {
+      alert("Exceeding Maximum Limit");
       return;
     }
 
@@ -97,37 +109,19 @@ export default function TaskList() {
     <DragDropContext onDragEnd={onDragEnd}>
       <div>
         <div className="App">
-          <Task
-            type="red"
-            list={red}
-            setlist={setRed}
-            addTask={addRed}
-            todo={todo}
-            setTodo={setTodo}
-          />
-          <Task
-            type="blue"
-            list={blue}
-            setlist={setblue}
-            addTask={addBlue}
-            todo={todo}
-            setTodo={setTodo}
-          />
-          <Task
+          <Card type="red" list={red} setList={setRed} addTask={addRed} />
+          <Card type="blue" list={blue} setList={setblue} addTask={addBlue} />
+          <Card
             type="green"
             list={green}
-            setlist={setGreen}
+            setList={setGreen}
             addTask={addGreen}
-            todo={todo}
-            setTodo={setTodo}
           />
-          <Task
+          <Card
             type="black"
             list={black}
-            setlist={setBlack}
+            setList={setBlack}
             addTask={addBlack}
-            todo={todo}
-            setTodo={setTodo}
           />
         </div>
       </div>
